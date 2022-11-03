@@ -1,0 +1,41 @@
+local animation_open = hash("open")
+local animation_close = hash("close")
+
+animation = animation_close
+
+function init(self)
+	-- Add initialization code here
+	-- Remove this function if not needed
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	if animation ~= self.current_animation then
+		msg.post("right_door#sprite", "play_animation", { id = animation })
+		self.current_animation = animation
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("new_level") then
+		animation = animation_close
+	end
+	
+	if message_id == hash("blue_pressed") then
+		animation = animation_open
+	end
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end

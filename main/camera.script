@@ -1,0 +1,38 @@
+local speed = 100
+
+function init(self)
+	msg.post("#camera", "acquire_camera_focus")
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	
+end
+
+function on_message(self, message_id, message)
+	if message_id == hash("set_view_projection") then
+		self.view = message.view
+		self.projection = message.projection
+		msg.post("@render:", "use_camera_projection")
+	end
+	
+	if message_id == hash("right") then
+		pos = go.get_position()
+		pos.x = pos.x + 1216
+		go.set_position(pos)
+	end
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end

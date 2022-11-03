@@ -1,0 +1,38 @@
+animations {
+  id: "open"
+  images {
+    image: "/assets/door/door1.PNG"
+  }
+  images {
+    image: "/assets/door/door2.PNG"
+  }
+  images {
+    image: "/assets/door/door3.PNG"
+  }
+  images {
+    image: "/assets/door/door4.PNG"
+  }
+  images {
+    image: "/assets/door/door5.PNG"
+  }
+  images {
+    image: "/assets/door/door6.PNG"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 4
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "close"
+  images {
+    image: "/assets/door/door1.PNG"
+  }
+  playback: PLAYBACK_NONE
+  fps: 4
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+margin: 0
+extrude_borders: 2
+inner_padding: 0
